@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+    <div class="decorations">
+        <div class="balloon balloon1">🎈</div>
+        <div class="balloon balloon2">🎈</div>
+        <div class="balloon balloon3">🎈</div>
+        <div class="star star1">⭐</div>
+        <div class="star star2">⭐</div>
+        <div class="star star3">⭐</div>
+    </div>
+    <div class="start-button" id="start-button">Start 🎉</div>
+    
+    <div class="container">
+        <div class="stack" id="photo-stack">
+            <img src="images/1.jpg" alt="Photo 1" class="photo" draggable="true">
+            <img src="images/2.jpg" alt="Photo 2" class="photo" draggable="true">
+            <img src="images/3.jpg" alt="Photo 3" class="photo" draggable="true">
+            <img src="images/4.jpg" alt="Photo 4" class="photo" draggable="true">
+        </div>
+        <div class="hidden-message" id="message">
+            🎉 Happy Birthday, <span id="name-placeholder">Dear</span>! 🎂<br>
+            Wishing you a fantastic year ahead! 🥳
+        </div>
+    </div>
+
+    <audio id="birthday-song" src="audios/happy-birthday.mp3" loop></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+/* Disable scrolling on the body and html */
+html, body {
+    overflow: hidden; /* Prevent scrolling */
+    height: 100%; /* Ensure full height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+/* General Styles */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("images/background.jpg") no-repeat center center fixed;
+    background-size: cover; /* Ensures full coverage without distortion */
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stack {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.photo {
+    position: absolute;
+    max-width: 300px;
+    max-height: 425px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: grab;
+    transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+    object-fit: contain;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.photo.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hidden-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-family: 'Pacifico', cursive;
+    color: #ff6f61;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    border: 3px solid #ff6f61;
+}
+
+.hidden-message.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1; /* Move decorations behind other content */
+}
+
+.balloon, .star {
+    position: absolute;
+    font-size: 40px;
+    animation: float 6s infinite ease-in-out;
+}
+
+.balloon1 { left: 10%; top: -20%; animation-duration: 8s; }
+.balloon2 { left: 40%; top: -30%; animation-duration: 10s; }
+.balloon3 { left: 70%; top: -25%; animation-duration: 7s; }
+.star1 { left: 20%; top: -15%; animation-duration: 9s; }
+.star2 { left: 60%; top: -20%; animation-duration: 11s; }
+.star3 { left: 80%; top: -10%; animation-duration: 7s; }
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+.start-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        background: url("images/background_2.webp") no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    /* Adjust for tablets and smaller screens */
+    .photo {
+        max-width: 200px; /* Smaller images */
+        max-height: 300px;
+    }
+
+    .hidden-message {
+        font-size: 24px; /* Smaller font size */
+        padding: 20px; /* Smaller padding */
+    }
+
+    .start-button {
+        font-size: 20px; /* Smaller button text */
+        padding: 10px 20px; /* Smaller button padding */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust for mobile phones */
+    .photo {
+        max-width: 150px; /* Even smaller images */
+        max-height: 225px;
+    }
+
+    .hidden-message {
+        font-size: 20px; /* Smaller font size */
+        padding: 15px; /* Smaller padding */
+    }
+
+    .start-button {
+        font-size: 18px; /* Smaller button text */
+        padding: 8px 16px; /* Smaller button padding */
+    }
+
+    .balloon, .star {
+        font-size: 30px; /* Smaller decorations */
+    }
+}
